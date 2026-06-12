@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        int slen = s.length();
+        String goal = sc.next();
+        int glen = goal.length();
+        if(slen != glen){
+            System.out.print("false");
+        }
+        char sch[] = new char[slen];
+        char gch[] = new char[glen];
+        for(int i=0; i<slen; i++){
+            sch[i] = s.charAt(i);
+            gch[i] = goal.charAt(i);
+        }
+        
+        for(int shift=0; shift<slen; shift++){
+            int count = 0;
+            for(int i=0; i<slen; i++){
+                if(sch[i]==gch[i]){
+                    count++;
+                }
+            }
+            if(count == slen){
+                System.out.print("true");
+                return;
+            }
+            char firstch = sch[0];
+            for(int i=0; i<slen-1; i++){
+                sch[i] = sch[i+1];
+            }
+            sch[slen-1] = firstch;
+            
+            
+            
+        }
+        System.out.print("false");
+            
+        }
+        
+        
+    
+}
